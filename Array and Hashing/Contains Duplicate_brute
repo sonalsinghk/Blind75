@@ -1,5 +1,6 @@
 T.C. = O(N^2)
 S.C. = O(1)
+Result - Time Limit Exceeded
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
