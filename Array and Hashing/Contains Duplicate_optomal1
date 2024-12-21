@@ -1,0 +1,17 @@
+T.C. - O(nlogn) = nlogn + n = n(logn + 1)
+S.C. - O(1) 
+My take: Used in-built sort function (O(nlogn)), when the question is to compare then sorting is
+         one of the solutions.
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(), nums.end());    //sort function
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==nums[i-1]){
+                return true;
+            }
+        }
+        return false;
+    }    
+};
