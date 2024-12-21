@@ -1,3 +1,9 @@
+Anagram: Words that rearrange to become a different word.
+EX- EAR = ARE
+---------------------------------------------------------
+T.C. - O(NLOGN + MLOGM)
+S.C. - O(1)
+Status - Accepted
 class Solution {
 public:
     bool isAnagram(string s, string t) {
