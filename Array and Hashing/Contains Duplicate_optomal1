@@ -1,5 +1,6 @@
 T.C. - O(nlogn) = nlogn + n = n(logn + 1)
 S.C. - O(1) 
+Status : Accepted but not ideal (21 sec)
 My take: Used in-built sort function (O(nlogn)), when the question is to compare then sorting is
          one of the solutions.
 
