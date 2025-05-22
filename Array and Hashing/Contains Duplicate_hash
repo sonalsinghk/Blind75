@@ -1,0 +1,12 @@
+T.C. - O(N)
+S.C. - 0(N)
+Unorded set contains only unique elements.
+Here it eleminates the duplicates while storing.
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        
+        return unordered_set<int> (nums.begin(),nums.end()).size() < nums.size();
+    }
+};
