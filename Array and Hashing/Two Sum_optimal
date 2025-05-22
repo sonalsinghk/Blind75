@@ -1,0 +1,22 @@
+T.C. - O(N)
+S.C. - 0(N)
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        
+        int n = nums.size();
+        unordered_map<int, int> viewMap;
+
+        for(int i=0;i<n;i++){
+            int diff = target - nums[i];
+            if(viewMap.find(diff) != viewMap.end()) //array ke end tak diff ko find karega
+            {
+               return {viewMap[diff], i};    //VIEWMap[diff] is the index where diff is found
+            }  
+
+            viewMap.insert({nums[i], i});
+        }
+        return {};
+    }
+};
