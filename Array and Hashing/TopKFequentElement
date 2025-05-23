@@ -1,0 +1,35 @@
+T.C. - O(NLOGN)
+S.C. - O(N)
+
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        
+        //count the number of occurences
+        unordered_map<int,int> count;
+        for(int num:nums){
+            count[num]++;
+        }
+
+        //reverese the frequency and value {number, freq} -> {freq,num}
+
+        vector<pair<int, int>> arr;
+
+        for(const auto& pair:count){
+            arr.push_back({pair.second,pair.first});
+        }
+
+        //reverese sort the made map
+
+        sort(arr.rbegin(),arr.rend());
+
+        //print the value
+
+        vector<int> res;
+        for(int i=0; i<k;i++){
+            res.push_back(arr[i].second);
+        }
+
+        return res;
+    }
+};
