@@ -1,0 +1,26 @@
+Approach - Make a new string, filter alnums, and add the charachters in lowercases. Reverse the 
+new string and check. 
+My Mistakes - Didn't knew the string functions, headerfiles.
+My approach - Traverse through the string, make a string that is without the special charachters
+and with no uppercase, take two loops, one starting with i and another with j and then compare ~ O(n^2)
+
+T.C. - O(N)
+S.C.- 0(N)
+
+
+#include<cctype>    --- IMPORTANT for string functions - alnum, tolower etc
+#include<string>
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string newStr = "";
+
+        for(char c: s){
+            if(isalnum(c)){
+                newStr += tolower(c);
+            }
+        }
+
+        return newStr == string(newStr.rbegin(),newStr.rend());
+    }    
+};
