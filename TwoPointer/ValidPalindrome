@@ -1,0 +1,30 @@
+T.C. - O(N)
+S.C. - 0(1)
+
+#include<cctype>
+#include<string>
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int l=0, r = s.size()-1;       //Marking lefy and right pointers
+
+        while(l<r){
+            while(l<r && !isalnum(s[l])){      //l pointer will exclude any special charachter
+                l++;
+            }
+            while(r>l && !isalnum(s[r])){     //r pointer
+                r--;
+            }
+            if(tolower(s[l]) != tolower(s[r])){     //final check/comparison
+                return false;
+            }
+
+            l++; r--;  //Making the l and r back to their original value which is 0 and size-1
+        }
+
+        return true;
+    }    
+};
+
+Problems I faced - I thought the pointer will stop as it find a special charachter, the l and r increment in the last line
+was confusing
