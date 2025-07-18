@@ -1,27 +1,42 @@
 T.C.- O(N^2)  S.C. - O(M)
 
+Approach - I was stuck at the third pointer, the solution took an iterator I as the third pointer, 
+           its similar to two sum. It took me time to understand why the if condition (i, l) one is 
+           used.
+
+Learning - Continue keyword skips to another digit
+
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+        sort(nums.begin(), nums.end());  
         vector<vector<int>> res;
 
         for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] > 0) break;
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
 
-            int l = i + 1, r = nums.size() - 1;
+            if (nums[i] > 0) break;             //If nums[i] is a positive integer then sums will be a larger one, hence break
+
+            if (i > 0 && nums[i] == nums[i - 1]) continue;     //this loop checks if nums[i] is not used twice, cause it'll cause duplication
+                                                               {-4,-1,-1}, the continue will skip to the next digit
+
+            int l = i + 1, r = nums.size() - 1;                //Setting left and right pointer
+
             while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
+
+                int sum = nums[i] + nums[l] + nums[r];  
+
                 if (sum > 0) {
                     r--;
                 } else if (sum < 0) {
                     l++;
                 } else {
                     res.push_back({nums[i], nums[l], nums[r]});
+
                     l++;
-                    r--;
-                    while (l < r && nums[l] == nums[l - 1]) {
+                    r--;                      //if zero sum digits are found, move the pointer to find next digits - Without this you will get 
+                                                Time Limit Exceed
+
+                    while (l < r && nums[l] == nums[l - 1]) {    //The left pointer should also not be repeated as it will cause duplication
                         l++;
                     }
                 }
