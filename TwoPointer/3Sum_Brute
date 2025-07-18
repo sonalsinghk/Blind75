@@ -1,0 +1,21 @@
+T.C. - O(N^3), S.C - O(M)
+Mistakes: Couldn't find the N^3 approach, new syntax was confusing. Set creates sets of possible outputs in
+this case {{-1,0,1},{-1,-1,2}} and then later converted to vector because we had to return in vector.
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        set<vector<int>> res;                    //new syntax
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = i + 1; j < nums.size(); j++) {
+                for (int k = j + 1; k < nums.size(); k++) {
+                    if (nums[i] + nums[j] + nums[k] == 0) {
+                        res.insert({nums[i], nums[j], nums[k]});  //new syntax
+                    }
+                }
+            }
+        }
+        return vector<vector<int>>(res.begin(), res.end());      //new syntax
+    }
+};
